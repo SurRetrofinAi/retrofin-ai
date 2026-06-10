@@ -1,0 +1,58 @@
+{
+  "endpoints": {
+    "POST /profile": {
+      "description": "Step 1 — Takes building and community data, returns structured profile + archetype match + preliminary package",
+      "input": {
+        "year_built": "number — approximate year e.g. 1978",
+        "location": "string — city or postcode e.g. 'Barcelona, 08006'",
+        "building_type": "string — e.g. 'Multifamily residential block'",
+        "num_units": "number — number of apartments e.g. 24",
+        "epc_rating": "string — A/B/C/D/E/F/G or 'unknown'",
+        "heating_system": "string — e.g. 'Gas boiler (central)'",
+        "monthly_income_eur": "number — total community fee income per month e.g. 4800",
+        "reserve_fund_eur": "number — current savings e.g. 35000",
+        "outstanding_debt_eur": "number — existing loans e.g. 0",
+        "main_issues": "array of strings — e.g. ['Poor insulation', 'High energy bills']",
+        "ite_iee_uploaded": "boolean — whether ITE/IEE report was uploaded",
+        "accounts_uploaded": "boolean — whether community accounts were uploaded"
+      },
+      "output": "See sample_profile.json"
+    },
+    "POST /proposal": {
+      "description": "Step 3 — Takes profile, fetches live Euribor from viaNexus, returns 3 financing scenarios",
+      "input": {
+        "profile": "object — full profile object returned from POST /profile",
+        "euribor_override": "number (optional) — override Euribor rate for sensitivity analysis e.g. 3.89"
+      },
+      "output": "See sample_proposal.json"
+    }
+  },
+  "notes": {
+    "base_url_local": "http://localhost:8000",
+    "base_url_production": "https://api.retrofin.ai (Scaleway — set up before demo day)",
+    "auth": "None required for demo",
+    "content_type": "application/json",
+    "sensitivity_analysis": "To re-run scenarios with a different rate, call POST /proposal again with euribor_override set to new value"
+  },
+  "victor_display_mapping": {
+    "screen_1": {
+      "archetype_label": "response.archetype.label",
+      "preliminary_measures": "response.preliminary_package.measures",
+      "cost_range": "response.preliminary_package.estimated_cost_range",
+      "max_subsidy": "response.preliminary_package.max_subsidy_available_eur",
+      "ite_warning": "response.flags[0].message if ite_iee_status == missing",
+      "agent_summary": "response.agent_summary"
+    },
+    "screen_3": {
+      "euribor_rate": "response.market_data.euribor_12m",
+      "euribor_source": "response.market_data.euribor_source",
+      "euribor_time": "response.market_data.euribor_fetched_at",
+      "eligibility_reasons": "response.eligibility.nextgen_pree.reasons",
+      "scenarios": "response.scenarios (array of 3)",
+      "recommended_id": "response.recommendation.scenario_id",
+      "recommendation_reason": "response.recommendation.reason",
+      "data_flags": "response.data_flags",
+      "agent_summary": "response.agent_summary"
+    }
+  }
+}

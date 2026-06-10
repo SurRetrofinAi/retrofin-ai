@@ -1,0 +1,306 @@
+{
+  "version": "1.0",
+  "description": "RetroFin AI — Building Archetype Library. Open-source primitive for structured finance agent workflows.",
+  "archetypes": [
+    {
+      "id": "PRE_1980_BARCELONA",
+      "label": "Pre-1980 Urban Multifamily",
+      "era": "Pre-1980",
+      "building_type": "Multifamily residential block",
+      "typical_location": "Urban — Barcelona, Madrid, Valencia",
+      "typical_epc": "E",
+      "typical_issues": [
+        "No facade insulation",
+        "Single-glazed windows",
+        "Old central gas boiler",
+        "Poor roof insulation",
+        "No solar generation"
+      ],
+      "match_criteria": {
+        "year_built_max": 1980,
+        "epc_ratings": ["E", "F", "G", "D"]
+      },
+      "retrofit_package": {
+        "measures": [
+          "Facade insulation (SATE system)",
+          "Triple glazing window replacement",
+          "Roof insulation upgrade",
+          "Central heat pump installation",
+          "Solar PV (common areas, 15kWp)"
+        ],
+        "estimated_cost_eur": {
+          "min": 80000,
+          "max": 180000,
+          "typical": 130000
+        },
+        "energy_saving_pct": {
+          "min": 45,
+          "max": 70,
+          "typical": 60
+        },
+        "co2_reduction_pct": {
+          "typical": 58
+        }
+      },
+      "subsidy_programs": [
+        {
+          "name": "NextGen EU / PREE",
+          "max_coverage_pct": 60,
+          "max_amount_eur": 72000,
+          "eligibility_note": "Building pre-2007, EPC below C, Spanish municipality"
+        },
+        {
+          "name": "Plan de Rehabilitación — Comunidades",
+          "max_coverage_pct": 40,
+          "max_amount_eur": 30000,
+          "eligibility_note": "Additional regional subsidy — stackable with NextGen"
+        },
+        {
+          "name": "LaCaixa Green Loan",
+          "max_amount_eur": 80000,
+          "rate_basis": "Euribor 12M + 0.50%",
+          "term_years": 15,
+          "eligibility_note": "EU taxonomy aligned, debt-to-income below 35%"
+        }
+      ],
+      "priority": "HIGH",
+      "subsidy_note": "Maximum priority target for Spanish retrofit programs 2024–2026"
+    },
+    {
+      "id": "1980_1995_SUBURBAN",
+      "label": "1980–1995 Suburban Multifamily",
+      "era": "1980–1995",
+      "building_type": "Multifamily residential block",
+      "typical_location": "Suburban — periphery of major Spanish cities",
+      "typical_epc": "D",
+      "typical_issues": [
+        "Minimal facade insulation",
+        "Dated boiler system",
+        "Partial window upgrade needed",
+        "No smart energy management"
+      ],
+      "match_criteria": {
+        "year_built_min": 1980,
+        "year_built_max": 1995,
+        "epc_ratings": ["D", "E"]
+      },
+      "retrofit_package": {
+        "measures": [
+          "Partial insulation upgrade (facades, roof)",
+          "Gas boiler replacement with heat pump",
+          "Window upgrade (double glazing)",
+          "Solar PV (12kWp)",
+          "Building energy management system"
+        ],
+        "estimated_cost_eur": {
+          "min": 50000,
+          "max": 120000,
+          "typical": 85000
+        },
+        "energy_saving_pct": {
+          "min": 35,
+          "max": 55,
+          "typical": 45
+        },
+        "co2_reduction_pct": {
+          "typical": 42
+        }
+      },
+      "subsidy_programs": [
+        {
+          "name": "NextGen EU / PREE",
+          "max_coverage_pct": 55,
+          "max_amount_eur": 60000,
+          "eligibility_note": "Building pre-2007, EPC D or below"
+        },
+        {
+          "name": "ICO Verde",
+          "max_amount_eur": 50000,
+          "rate_basis": "Euribor 12M + 0.75%",
+          "term_years": 12
+        },
+        {
+          "name": "LaCaixa Green Loan",
+          "max_amount_eur": 60000,
+          "rate_basis": "Euribor 12M + 0.50%",
+          "term_years": 15
+        }
+      ],
+      "priority": "MEDIUM_HIGH",
+      "subsidy_note": "Good subsidy access — EPC D buildings eligible for most programs"
+    },
+    {
+      "id": "1995_2006_MIXED",
+      "label": "1995–2006 Mixed Urban",
+      "era": "1995–2006",
+      "building_type": "Multifamily residential block",
+      "typical_location": "Mixed urban and suburban",
+      "typical_epc": "D",
+      "typical_issues": [
+        "Basic insulation present but substandard",
+        "Gas boiler reaching end of life",
+        "No renewable energy",
+        "No smart controls"
+      ],
+      "match_criteria": {
+        "year_built_min": 1995,
+        "year_built_max": 2006,
+        "epc_ratings": ["C", "D"]
+      },
+      "retrofit_package": {
+        "measures": [
+          "Gas boiler to heat pump conversion",
+          "Solar PV (10kWp)",
+          "Window upgrade (selected units)",
+          "Smart energy management system"
+        ],
+        "estimated_cost_eur": {
+          "min": 30000,
+          "max": 80000,
+          "typical": 55000
+        },
+        "energy_saving_pct": {
+          "min": 25,
+          "max": 45,
+          "typical": 35
+        },
+        "co2_reduction_pct": {
+          "typical": 32
+        }
+      },
+      "subsidy_programs": [
+        {
+          "name": "LaCaixa Green Loan",
+          "max_amount_eur": 40000,
+          "rate_basis": "Euribor 12M + 0.50%",
+          "term_years": 12
+        },
+        {
+          "name": "NextGen EU / PREE",
+          "max_coverage_pct": 40,
+          "max_amount_eur": 25000,
+          "eligibility_note": "Partial eligibility — building pre-2007"
+        }
+      ],
+      "priority": "MEDIUM",
+      "subsidy_note": "Limited NextGen access — focus on green loans and heat pump incentives"
+    },
+    {
+      "id": "2006_2020_MODERN",
+      "label": "2006–2020 Modern Multifamily",
+      "era": "2006–2020",
+      "building_type": "Multifamily residential block",
+      "typical_location": "Urban and suburban",
+      "typical_epc": "C",
+      "typical_issues": [
+        "No solar generation",
+        "No EV charging infrastructure",
+        "Smart energy controls not installed"
+      ],
+      "match_criteria": {
+        "year_built_min": 2006,
+        "year_built_max": 2020,
+        "epc_ratings": ["B", "C"]
+      },
+      "retrofit_package": {
+        "measures": [
+          "Solar PV (8–12kWp)",
+          "EV charging points installation",
+          "Smart energy management system",
+          "Battery storage (optional)"
+        ],
+        "estimated_cost_eur": {
+          "min": 15000,
+          "max": 45000,
+          "typical": 28000
+        },
+        "energy_saving_pct": {
+          "min": 15,
+          "max": 30,
+          "typical": 22
+        },
+        "co2_reduction_pct": {
+          "typical": 20
+        }
+      },
+      "subsidy_programs": [
+        {
+          "name": "LaCaixa Green Loan",
+          "max_amount_eur": 30000,
+          "rate_basis": "Euribor 12M + 0.50%",
+          "term_years": 10
+        },
+        {
+          "name": "Plan Social para el Clima",
+          "max_coverage_pct": 30,
+          "max_amount_eur": 15000,
+          "eligibility_note": "New 2024–2026 program — low-income priority"
+        }
+      ],
+      "priority": "LOW_MEDIUM",
+      "subsidy_note": "Limited subsidy access — mainly green loan territory"
+    },
+    {
+      "id": "EPC_FG_PRIORITY",
+      "label": "EPC F/G Priority Target",
+      "era": "Any era",
+      "building_type": "Any residential building",
+      "typical_location": "Any Spanish municipality",
+      "typical_epc": "F",
+      "typical_issues": [
+        "Severely inadequate insulation",
+        "Very high energy consumption",
+        "Outdated or absent heating system",
+        "Structural issues common"
+      ],
+      "match_criteria": {
+        "epc_ratings": ["F", "G"]
+      },
+      "retrofit_package": {
+        "measures": [
+          "Full envelope upgrade (facade, roof, floor)",
+          "Complete heating system replacement",
+          "Triple glazing throughout",
+          "Renewable energy integration",
+          "Deep renovation package"
+        ],
+        "estimated_cost_eur": {
+          "min": 120000,
+          "max": 300000,
+          "typical": 200000
+        },
+        "energy_saving_pct": {
+          "min": 60,
+          "max": 80,
+          "typical": 72
+        },
+        "co2_reduction_pct": {
+          "typical": 70
+        }
+      },
+      "subsidy_programs": [
+        {
+          "name": "NextGen EU / PREE 5000",
+          "max_coverage_pct": 80,
+          "max_amount_eur": 120000,
+          "eligibility_note": "Maximum priority — EPC F/G qualifies for enhanced program"
+        },
+        {
+          "name": "Plan de Rehabilitación — Barrios Vulnerables",
+          "max_coverage_pct": 60,
+          "max_amount_eur": 80000,
+          "eligibility_note": "Urban renewal zones — check local eligibility"
+        },
+        {
+          "name": "LaCaixa Green Loan",
+          "max_amount_eur": 100000,
+          "rate_basis": "Euribor 12M + 0.25%",
+          "term_years": 20,
+          "eligibility_note": "Preferential rate for EPC F/G — highest climate impact"
+        }
+      ],
+      "priority": "MAXIMUM",
+      "subsidy_note": "Highest priority target — maximum subsidy coverage available under all programs"
+    }
+  ]
+}
