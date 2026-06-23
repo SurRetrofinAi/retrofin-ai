@@ -1,0 +1,159 @@
+{
+  "status": "success",
+  "market_data": {
+    "euribor_12m": 2.89,
+    "euribor_fetched_at": "2026-06-10T11:02:00CET",
+    "euribor_source": "viaNexus MCP",
+    "lacaixa_spread": 0.50,
+    "lacaixa_rate": 3.39,
+    "lacaixa_rate_label": "LaCaixa Green Loan (Euribor 12M + 0.50%)"
+  },
+  "eligibility": {
+    "nextgen_pree": {
+      "eligible": true,
+      "reasons": [
+        "Building built 1978 → pre-2007 qualifies",
+        "EPC D → below C threshold qualifies",
+        "Barcelona → eligible municipality",
+        "24 units → community size qualifies"
+      ],
+      "max_amount_eur": 72000,
+      "coverage_pct": 60,
+      "program": "NextGen EU / Plan de Recuperación — PREE"
+    },
+    "lacaixa_green_loan": {
+      "eligible": true,
+      "reasons": [
+        "Debt-to-income ratio 0.0 → within limit",
+        "Reserve fund €35,000 → sufficient collateral",
+        "EU taxonomy aligned project"
+      ],
+      "max_amount_eur": 50000,
+      "rate_pct": 3.39,
+      "term_years": 15
+    }
+  },
+  "scenarios": [
+    {
+      "id": "A",
+      "label": "Scenario A",
+      "name": "Window Replacement",
+      "badge": "Entry level",
+      "recommended": false,
+      "measures": [
+        "Triple glazing · 24 units",
+        "PVC frames"
+      ],
+      "metrics": {
+        "total_cost_eur": 38000,
+        "energy_saving_pct": 22,
+        "payback_years": 6,
+        "co2_reduction_pct": 18,
+        "monthly_bill_reduction_eur": 92,
+        "monthly_bill_before_eur": 420,
+        "monthly_bill_after_eur": 328
+      },
+      "financing": {
+        "nextgen_subsidy_eur": 19000,
+        "nextgen_subsidy_pct": 50,
+        "lacaixa_loan_eur": 12000,
+        "lacaixa_loan_pct": 32,
+        "lacaixa_rate_pct": 3.39,
+        "lacaixa_monthly_payment_eur": 87,
+        "community_contribution_eur": 7000,
+        "community_contribution_pct": 18,
+        "community_per_apartment_eur": 292
+      },
+      "ai_note": "Lowest cost entry point. Subsidy coverage at 50% — good but not maximised. Payback in 6 years."
+    },
+    {
+      "id": "B",
+      "label": "Scenario B",
+      "name": "Windows + Facade",
+      "badge": "Recommended",
+      "recommended": true,
+      "measures": [
+        "Triple glazing",
+        "Facade insulation (SATE)",
+        "Roof insulation"
+      ],
+      "metrics": {
+        "total_cost_eur": 98000,
+        "energy_saving_pct": 48,
+        "payback_years": 8.5,
+        "co2_reduction_pct": 42,
+        "monthly_bill_reduction_eur": 202,
+        "monthly_bill_before_eur": 420,
+        "monthly_bill_after_eur": 218
+      },
+      "financing": {
+        "nextgen_subsidy_eur": 58800,
+        "nextgen_subsidy_pct": 60,
+        "lacaixa_loan_eur": 25200,
+        "lacaixa_loan_pct": 26,
+        "lacaixa_rate_pct": 3.39,
+        "lacaixa_monthly_payment_eur": 183,
+        "community_contribution_eur": 14000,
+        "community_contribution_pct": 14,
+        "community_per_apartment_eur": 583
+      },
+      "ai_note": "Maximises subsidy at 60% (PREE cap). Community contribution stays below €600/apt. Scenario C adds solar but drops subsidy % — PREE cap exceeded at €148k for 24 units."
+    },
+    {
+      "id": "C",
+      "label": "Scenario C",
+      "name": "Windows + Facade + Solar",
+      "badge": "Maximum impact",
+      "recommended": false,
+      "measures": [
+        "Triple glazing",
+        "Facade + Roof insulation",
+        "Heat pump",
+        "Solar PV 15kWp"
+      ],
+      "metrics": {
+        "total_cost_eur": 148000,
+        "energy_saving_pct": 65,
+        "payback_years": 9,
+        "co2_reduction_pct": 60,
+        "monthly_bill_reduction_eur": 273,
+        "monthly_bill_before_eur": 420,
+        "monthly_bill_after_eur": 147
+      },
+      "financing": {
+        "nextgen_subsidy_eur": 72000,
+        "nextgen_subsidy_pct": 49,
+        "lacaixa_loan_eur": 54500,
+        "lacaixa_loan_pct": 37,
+        "lacaixa_rate_pct": 3.39,
+        "lacaixa_monthly_payment_eur": 396,
+        "community_contribution_eur": 21500,
+        "community_contribution_pct": 14,
+        "community_per_apartment_eur": 896
+      },
+      "ai_note": "Maximum energy impact at −65%. Subsidy drops to 49% as total cost exceeds PREE cap. Best for communities prioritising climate impact over cost efficiency."
+    }
+  ],
+  "recommendation": {
+    "scenario_id": "B",
+    "reason": "Scenario B maximises subsidy coverage at 60% while keeping community contribution below €600 per apartment. Best balance of cost, savings, and eligibility."
+  },
+  "data_flags": [
+    {
+      "type": "warning",
+      "message": "Reserve fund certificate missing — could unlock +€8,000 additional subsidy",
+      "action": "upload_reserve_certificate"
+    },
+    {
+      "type": "warning",
+      "message": "ITE/IEE building report missing — required to confirm facade eligibility",
+      "action": "upload_ite_iee"
+    },
+    {
+      "type": "info",
+      "message": "Last energy bill would confirm EPC rating from estimated D to certified D",
+      "action": "upload_energy_bill"
+    }
+  ],
+  "agent_summary": "Three scenarios generated based on architect-certified specifications and live Euribor 12M rate of 2.89% (viaNexus). Scenario B recommended — highest subsidy coverage at 60%, community contribution €583 per apartment. All scenarios eligible for NextGen PREE subsidy and LaCaixa green loan at 3.39%."
+}

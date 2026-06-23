@@ -1,1 +1,5 @@
 .env
+__pycache__/
+*.pyc
+server.log
+node_modules/

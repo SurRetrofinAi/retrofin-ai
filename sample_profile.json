@@ -1,0 +1,74 @@
+{
+  "status": "success",
+  "profile": {
+    "building_id": "BCN-1978-001",
+    "location": "Barcelona, 08006",
+    "year_built": 1978,
+    "building_type": "Multifamily residential block",
+    "num_units": 24,
+    "floor_area_m2": 850,
+    "epc_rating": "D",
+    "epc_source": "estimated",
+    "heating_system": "Gas boiler (central)",
+    "solar_panels": false,
+    "main_issues": ["Poor insulation", "High energy bills", "Old gas boiler"]
+  },
+  "finances": {
+    "monthly_income_eur": 4800,
+    "annual_income_eur": 57600,
+    "reserve_fund_eur": 35000,
+    "outstanding_debt_eur": 0,
+    "debt_to_income_ratio": 0.0,
+    "financial_health": "strong"
+  },
+  "documents": {
+    "ite_iee_report": {
+      "uploaded": false,
+      "required": true,
+      "impact": "Could unlock additional subsidy coverage"
+    },
+    "community_accounts": {
+      "uploaded": true,
+      "filename": "cuentas_comunidad_2023.xlsx",
+      "verified": true
+    }
+  },
+  "archetype": {
+    "id": "PRE_1980_BARCELONA",
+    "label": "Pre-1980 Urban Multifamily",
+    "description": "High-priority retrofit target. Typical issues: poor facade insulation, single-glazed windows, inefficient gas boiler.",
+    "confidence": 0.92
+  },
+  "preliminary_package": {
+    "measures": [
+      "Window replacement (triple glazing)",
+      "Facade insulation (SATE)",
+      "Heat pump installation",
+      "Solar PV (common areas)"
+    ],
+    "estimated_cost_range": {
+      "min_eur": 80000,
+      "max_eur": 180000
+    },
+    "energy_saving_pct_max": 65,
+    "max_subsidy_available_eur": 72000,
+    "architect_review_required": true,
+    "ite_iee_status": "missing",
+    "ite_iee_warning": "Required for maximum subsidy access. Typical cost €800–1,500. Takes 4–6 weeks."
+  },
+  "flags": [
+    {
+      "type": "warning",
+      "field": "ite_iee_report",
+      "message": "ITE/IEE report missing — needed for NextGen subsidy applications",
+      "action": "request_ite_iee"
+    },
+    {
+      "type": "info",
+      "field": "epc_rating",
+      "message": "EPC rating estimated from building age. Confirm with energy certificate for accurate subsidy calculation."
+    }
+  ],
+  "next_step": "book_architect_assessment",
+  "agent_summary": "1978 Barcelona multifamily block matched to Pre-1980 archetype. Strong financial position with €35,000 reserves and no debt. Building qualifies as priority subsidy target. ITE/IEE report missing — flag for follow-up. Preliminary package ready."
+}
